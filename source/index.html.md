@@ -2,10 +2,7 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
   - php
-  - python
-  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -19,41 +16,33 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Wealthtab API Documentation!
 
-We have language bindings in Shell, php, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+# General
+To access any of our API's, you will require an access token which can be sent in the header of the post request.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+```php
+'headers' => [
+    'Accept' => 'application/json',
+    'Authorization' => 'Bearer '.$accessToken,
+]
+```
 
-# Authentication
+# Requesting Access Token
 
 > To authorize, use this code:
 
 ```php
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+'headers' => [
+    'Accept' => 'application/json',
+],
+'body' => [
+	'email' => '$email',
+    'password' => '$password',
+],
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `$email` and `$password` with their correct credentials.
 
 Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
 
@@ -75,7 +64,7 @@ require 'kittn'
 api = Kittn::APIClient.authorize!('meowmeowmeow')
 api.kittens.get
 ```
-
+<!--
 ```python
 import kittn
 
@@ -93,7 +82,7 @@ const kittn = require('kittn');
 
 let api = kittn.authorize('meowmeowmeow');
 let kittens = api.kittens.get();
-```
+``` -->
 
 > The above command returns JSON structured like this:
 

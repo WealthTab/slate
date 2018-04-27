@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
-  config.vm.network :forwarded_port, guest: 4567, host: 4567
+	config.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", host_ip: "localhost", auto_correct: true
 
   config.vm.provision "bootstrap",
     type: "shell",
